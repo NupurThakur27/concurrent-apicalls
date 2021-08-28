@@ -19,7 +19,8 @@ func main() {
 		wg.Add(1)
 		go func(id int) {
 			a := apiCall.API{BaseURL: URL}
-			u := a.GetDataFromGoRest(id, &wg)
+			u := a.GetDataFromGoRest(id)
+			wg.Done()
 			users = append(users, u...)
 		}(id)
 	}

@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/http"
 	"strconv"
-	"sync"
 )
 
 type API struct {
@@ -15,9 +14,8 @@ type API struct {
 	BaseURL string
 }
 
-func (a *API) GetDataFromGoRest(pageNumber int, wg *sync.WaitGroup) []model.User {
+func (a *API) GetDataFromGoRest(pageNumber int) []model.User {
 	res, err := http.Get(a.BaseURL + "/public/v1/users?page=" + strconv.Itoa(pageNumber))
-	defer wg.Done()
 	if err != nil {
 		log.Println("unable to make the request", err)
 	}
