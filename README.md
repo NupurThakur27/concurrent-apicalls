@@ -1,4 +1,4 @@
 # concurrent-apicalls
 
-Example repository for Concurrent Api calls using:
+Example repository for Concurrent API calls using:
 * waitGroups
